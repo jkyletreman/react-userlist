@@ -63,14 +63,17 @@ const UserInfoFull = ({ selectedUser }) => {
   return userData.map(user => {
     if (`${user.first} ${user.last}` === selectedUser) {
       return (
-        <ul>
-          <li>{user.age}</li>
-          <li>{user.location}</li>
-          <li>{user.description}</li>
-        </ul>
+        <div>
+          <h2>
+            Selected User {user.first} {user.last}
+          </h2>
+          <ul>
+            <li>{user.age}</li>
+            <li>{user.location}</li>
+            <li>{user.description}</li>
+          </ul>
+        </div>
       );
-    } else {
-      return <p />;
     }
   });
 };
