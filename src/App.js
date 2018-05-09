@@ -27,7 +27,7 @@ const userData = [
   }
 ];
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,13 +46,13 @@ class App extends Component {
 
     return (
       <div>
+        <ul>
         {userData.map(user => (
-          <ul>
             <li key={user.id} onClick={this.handleClick}>
               {user.first} {user.last}
             </li>
-          </ul>
         ))}
+      </ul>
         <UserInfoFull selectedUser={selectedUser} />
       </div>
     );
@@ -83,5 +83,3 @@ const UserInfoFull = ({ selectedUser }) => {
     }
   });
 };
-
-export default App;
