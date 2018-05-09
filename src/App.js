@@ -46,13 +46,13 @@ class App extends Component {
 
     return (
       <div>
+        <ul>
         {userData.map(user => (
-          <ul>
             <li key={user.id} onClick={this.handleClick}>
               {user.first} {user.last}
             </li>
-          </ul>
         ))}
+      </ul>
         <UserInfoFull selectedUser={selectedUser} />
       </div>
     );
