@@ -61,14 +61,20 @@ class App extends Component {
 
 const UserInfoFull = ({ selectedUser }) => {
   return userData.map(user => {
+
     if (`${user.first} ${user.last}` === selectedUser) {
+
+      const currentTime = new Date();
+      const year = currentTime.getFullYear();
+      const YOB = year - user.age
+
       return (
         <div>
           <h2>
             Selected User {user.first} {user.last}
           </h2>
           <ul>
-            <li>{user.age}</li>
+            <li>{YOB}</li>
             <li>{user.location}</li>
             <li>{user.description}</li>
           </ul>
