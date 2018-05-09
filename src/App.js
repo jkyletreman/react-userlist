@@ -28,19 +28,36 @@ const userData = [
 ];
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userSelected: ""
+    };
+  }
+
+  handleClick = e => {
+    this.setState({
+      userSelected: e.target.innerText
+    });
+  };
 
   render() {
+    const selectedUser = this.state.userIsSelected;
+
+    const UserInfoFull = () =>
+      <p></p>;
+
     return (
-      <ul>
-        {userData.map(user => (
-          <li
-            key={user.id} 
-            onClick={this.handleClick}
-            >
-            {user.first} {user.last}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {userData.map(user => (
+            <li key={user.id} onClick={this.handleClick}>
+              {user.first} {user.last}
+            </li>
+          ))}
+        </ul>
+        <UserInfoFull />
+      </div>
     );
   }
 }
