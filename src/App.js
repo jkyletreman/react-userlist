@@ -42,24 +42,37 @@ class App extends Component {
   };
 
   render() {
-    const selectedUser = this.state.userIsSelected;
-
-    const UserInfoFull = () =>
-      <p></p>;
+    const selectedUser = this.state.userSelected;
 
     return (
       <div>
-        <ul>
-          {userData.map(user => (
-            <li key={user.id} onClick={this.handleClick}>
-              {user.first} {user.last}
-            </li>
-          ))}
-        </ul>
-        <UserInfoFull />
+        {userData.map(user => (
+          <div>
+            <ul>
+              <li key={user.id} onClick={this.handleClick}>
+                {user.first} {user.last}
+              </li>
+            </ul>
+            <UserInfoFull user={user} selectedUser={selectedUser} />
+          </div>
+        ))}
       </div>
     );
   }
 }
+
+const UserInfoFull = ({ user, selectedUser }) => {
+  if (`${user.first} ${user.last}` === selectedUser) {
+    return (
+      <ul>
+        <li>{user.age}</li>
+        <li>{user.location}</li>
+        <li>{user.description}</li>
+      </ul>
+    );
+  } else {
+    return <p></p>
+  }
+};
 
 export default App;
