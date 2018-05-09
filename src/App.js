@@ -47,32 +47,32 @@ class App extends Component {
     return (
       <div>
         {userData.map(user => (
-          <div>
-            <ul>
-              <li key={user.id} onClick={this.handleClick}>
-                {user.first} {user.last}
-              </li>
-            </ul>
-            <UserInfoFull user={user} selectedUser={selectedUser} />
-          </div>
+          <ul>
+            <li key={user.id} onClick={this.handleClick}>
+              {user.first} {user.last}
+            </li>
+          </ul>
         ))}
+        <UserInfoFull selectedUser={selectedUser} />
       </div>
     );
   }
 }
 
-const UserInfoFull = ({ user, selectedUser }) => {
-  if (`${user.first} ${user.last}` === selectedUser) {
-    return (
-      <ul>
-        <li>{user.age}</li>
-        <li>{user.location}</li>
-        <li>{user.description}</li>
-      </ul>
-    );
-  } else {
-    return <p></p>
-  }
+const UserInfoFull = ({ selectedUser }) => {
+  return userData.map(user => {
+    if (`${user.first} ${user.last}` === selectedUser) {
+      return (
+        <ul>
+          <li>{user.age}</li>
+          <li>{user.location}</li>
+          <li>{user.description}</li>
+        </ul>
+      );
+    } else {
+      return <p />;
+    }
+  });
 };
 
 export default App;
