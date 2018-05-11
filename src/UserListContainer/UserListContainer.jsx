@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserList from "../UserListPresentation/UserList";
+import UserInfoFullContainer from "../UserInfoFullContainer/UserInfoFullContainer"
 
 // would be under a componentDidMount() fetch call to an API
 const userData = [
@@ -66,28 +67,3 @@ export default class UserListContainer extends Component {
     );
   }
 }
-
-class UserInfoFullContainer extends Component {
-  calculateUserBirthYear = () => {
-    const currentTime = new Date();
-    const year = currentTime.getFullYear();
-    return year - this.props.selectedUser.age;
-  }
-    render() {
-      return (
-      <UserInfoFull selectedUser={this.props.selectedUser} birthYear={this.calculateUserBirthYear()}/>
-    )}
-  };
-
-
-const UserInfoFull = ({ selectedUser, birthYear }) => {
-  return (
-    <ul>
-      <li>{selectedUser.first}</li>
-      <li>{selectedUser.last}</li>
-      <li>{birthYear}</li>
-      <li>{selectedUser.location}</li>
-      <li>{selectedUser.description}</li>
-    </ul>
-  );
-};
