@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders user shallow correctly 1`] = `
+exports[`<UserListContainer /> renders user shallow correctly 1`] = `
 <div>
   <UserList
     handleClick={[Function]}
