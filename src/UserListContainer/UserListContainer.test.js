@@ -7,17 +7,16 @@ import Adapter from "enzyme-adapter-react-16";
 import toJson from "enzyme-to-json";
 
 configure({ adapter: new Adapter() })
+const tree = shallow(<UserListContainer />);
 
 describe("<UserListContainer />", () => {
   it("renders shallow correctly", () => {
-    const tree = shallow(<UserListContainer />);
     expect(toJson(tree)).toMatchSnapshot();
   });
 
   it("should have a HOC ul with 3 li children", () => {
-    const wrapper = shallow(<UserListContainer />)
     it('should have a ul with 3 children', () => {
-      expect(wrapper.find('ul').dive().children().length).toBe(3);
+      expect(tree.find('ul').dive().children().length).toBe(3);
     });
   });
 });

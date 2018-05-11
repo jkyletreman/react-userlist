@@ -4,18 +4,19 @@ import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import toJson from "enzyme-to-json";
 import UserList from "./UserList";
-
 const userData = require("../userData.json");
 
 configure({ adapter: new Adapter() })
 
+const tree = shallow(<UserList userData={userData} />);
+
 describe("<UserList />", () => {
+
   it("renders shallow correctly", () => {
-    const tree = shallow(<UserList userData={userData} />);
     expect(toJson(tree)).toMatchSnapshot();
   });
+
   it("should render a ul with 3 li children", () => {
-    const wrapper = shallow(<UserList userData={userData} />);
-    expect(wrapper.find('ul').children().length).toBe(3);
-  })
+    expect(tree.find('ul').children().length).toBe(3);
+  });
 });

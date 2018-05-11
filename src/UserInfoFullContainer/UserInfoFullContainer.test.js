@@ -7,9 +7,10 @@ import UserInfoFullContainer from "./UserInfoFullContainer";
 
 configure({ adapter: new Adapter() });
 
+const tree = shallow(<UserInfoFullContainer selectedUser={{ age: 24 }} />);
+
 describe("<UserInfoFull />", () => {
   it("renders shallow correctly", () => {
-    const tree = shallow(<UserInfoFullContainer selectedUser={{ age: 24 }} />);
     expect(toJson(tree)).toMatchSnapshot();
   });
 });

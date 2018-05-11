@@ -7,19 +7,22 @@ import UserInfoFull from "./UserInfoFull";
 
 configure({ adapter: new Adapter() });
 
+const tree = shallow(<UserInfoFull birthYear={1989} selectedUser={{
+      first: "kyle",
+      last: "treman",
+      location: "NY",
+      description: "working"
+    }}
+  />
+);
+const instance = tree.getElement().props;
+
 describe("<UserInfoFull />", () => {
   it("renders shallow correctly", () => {
-    const tree = shallow(
-      <UserInfoFull
-        birthYear={1989}
-        selectedUser={{
-          first: "kyle",
-          last: "treman",
-          location: "NY",
-          description: "working"
-        }}
-      />
-    );
     expect(toJson(tree)).toMatchSnapshot();
+  });
+
+  it("should render 5 li elements", () => {
+    expect(tree.find('ul').children('li').length).toBe(5);
   });
 });
