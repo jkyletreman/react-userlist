@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import UserList from "./UserList/UserList"
 
 const userData = [
   {
@@ -67,25 +68,15 @@ export default class App extends Component {
   }
 }
 
-const UserList = ({ userData, handleClick }) => {
-  return (
-    <ul>
-      {userData.map(user => (
-        <li key={user.id} onClick={handleClick}>
-          {user.first} {user.last}
-        </li>
-      ))}
-    </ul>
-  );
-};
-
 const UserInfoFull = props => {
   return (
     <div>
       {props.selectedUser.map(user => {
+
         const currentTime = new Date();
         const year = currentTime.getFullYear();
         const YOB = year - user.age;
+
         return (
           <ul>
             <li>{user.first}</li>
