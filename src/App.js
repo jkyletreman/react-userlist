@@ -31,62 +31,73 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userSelected: ""
+      userSelected: "",
+      userIsSelected: false
     };
   }
 
   handleClick = e => {
     this.setState({
-      userSelected: e.target.innerText
+      userSelected: e.target.innerText,
+      userIsSelected: true
     });
+  };
+
+  filterUserData = username => {
+    return userData.filter(user => `${user.first} ${user.last}` === username);
   };
 
   render() {
     const selectedUser = this.state.userSelected;
 
-    return (
-      <div>
-        <UserList userData={userData} handleClick={this.handleClick}/>
-        <UserInfoFull selectedUser={selectedUser} />
-      </div>
+    const selectedUserData = this.state.userIsSelected ? (
+      this.filterUserData(selectedUser)
+    ) : (
+      null
     )
 
+    const additionalUserInfo = this.state.userIsSelected ? (
+      <UserInfoFull selectedUser={selectedUserData} />
+    ) : (
+      console.log(false)
+    )
+
+    return (
+      <div>
+        <UserList userData={userData} handleClick={this.handleClick} />
+        {additionalUserInfo}
+      </div>
+    );
   }
 }
 
 const UserList = ({ userData, selectedUser, handleClick }) => {
   return (
-      <ul>
+    <ul>
       {userData.map(user => (
-          <li key={user.id} onClick={handleClick}>
-            {user.first} {user.last}
-          </li>
+        <li key={user.id} onClick={handleClick}>
+          {user.first} {user.last}
+        </li>
       ))}
     </ul>
   );
-}
+};
 
-const UserInfoFull = ({ selectedUser }) => {
-  return userData.map(user => {
+const UserInfoFull = ({ first, last, age, location, description }) => {
+  const currentTime = new Date();
+  const year = currentTime.getFullYear();
+  const YOB = year - age;
 
-    if (`${user.first} ${user.last}` === selectedUser) {
-
-      const currentTime = new Date();
-      const year = currentTime.getFullYear();
-      const YOB = year - user.age
-
-      return (
-        <div>
-          <h2>
-            Selected User {user.first} {user.last}
-          </h2>
-          <ul>
-            <li>{YOB}</li>
-            <li>{user.location}</li>
-            <li>{user.description}</li>
-          </ul>
-        </div>
-      );
-    }
-  });
+  return (
+    <div>
+      <h2>
+        Selected User {first} {last}
+      </h2>
+      <ul>
+        <li>{YOB}</li>
+        <li>{location}</li>
+        <li>{description}</li>
+      </ul>
+    </div>
+  );
 };
