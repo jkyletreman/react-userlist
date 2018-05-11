@@ -46,17 +46,24 @@ export default class App extends Component {
 
     return (
       <div>
-        <ul>
-        {userData.map(user => (
-            <li key={user.id} onClick={this.handleClick}>
-              {user.first} {user.last}
-            </li>
-        ))}
-      </ul>
+        <UserList userData={userData} handleClick={this.handleClick}/>
         <UserInfoFull selectedUser={selectedUser} />
       </div>
-    );
+    )
+
   }
+}
+
+const UserList = ({ userData, selectedUser, handleClick }) => {
+  return (
+      <ul>
+      {userData.map(user => (
+          <li key={user.id} onClick={handleClick}>
+            {user.first} {user.last}
+          </li>
+      ))}
+    </ul>
+  );
 }
 
 const UserInfoFull = ({ selectedUser }) => {
