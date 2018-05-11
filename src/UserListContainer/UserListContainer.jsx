@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserList from "../UserListPresentation/UserList"
+import UserList from "../UserListPresentation/UserList";
 
 // would be under a componentDidMount() fetch call to an API
 const userData = [
@@ -50,14 +50,12 @@ export default class UserListContainer extends Component {
   };
 
   render() {
-    const selectedUser = this.state.userSelected;
-
     const selectedUserData = this.state.userIsSelected
-      ? this.filterUserData(selectedUser)
+      ? this.filterUserData(this.state.userSelected)
       : null;
 
     const additionalUserInfo = this.state.userIsSelected ? (
-      <UserInfoFull selectedUser={selectedUserData} />
+      <UserInfoFullContainer selectedUser={selectedUserData[0]} />
     ) : null;
 
     return (
@@ -69,27 +67,27 @@ export default class UserListContainer extends Component {
   }
 }
 
+class UserInfoFullContainer extends Component {
+  calculateUserBirthYear = () => {
+    const currentTime = new Date();
+    const year = currentTime.getFullYear();
+    return year - this.props.selectedUser.age;
+  }
+    render() {
+      return (
+      <UserInfoFull selectedUser={this.props.selectedUser} birthYear={this.calculateUserBirthYear()}/>
+    )}
+  };
 
 
-const UserInfoFull = props => {
+const UserInfoFull = ({ selectedUser, birthYear }) => {
   return (
-    <div>
-      {props.selectedUser.map(user => {
-
-        const currentTime = new Date();
-        const year = currentTime.getFullYear();
-        const YOB = year - user.age;
-
-        return (
-          <ul>
-            <li>{user.first}</li>
-            <li>{user.last}</li>
-            <li>{YOB}</li>
-            <li>{user.location}</li>
-            <li>{user.description}</li>
-          </ul>
-        );
-      })}
-    </div>
+    <ul>
+      <li>{selectedUser.first}</li>
+      <li>{selectedUser.last}</li>
+      <li>{birthYear}</li>
+      <li>{selectedUser.location}</li>
+      <li>{selectedUser.description}</li>
+    </ul>
   );
 };
