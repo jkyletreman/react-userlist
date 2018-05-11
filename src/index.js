@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import UserListContainer from "./UserListContainer/UserListContainer"
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<UserListContainer />, document.getElementById('root'));
 registerServiceWorker();
