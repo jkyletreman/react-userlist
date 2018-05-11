@@ -8,7 +8,7 @@ export default class UserInfoFullContainer extends Component {
     const year = currentTime.getFullYear();
     return year - this.props.selectedUser.age;
   };
-  
+
   render() {
     return (
       <UserInfoFull

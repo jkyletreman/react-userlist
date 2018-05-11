@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserList /> renders shallow correctly 1`] = `
+<ul>
+  <li
+    key="1"
+  >
+    John
+     
+    Roberts
+  </li>
+  <li
+    key="2"
+  >
+    Frita
+     
+    Waters
+  </li>
+  <li
+    key="3"
+  >
+    Bart
+     
+    Simpson
+  </li>
+</ul>
+`;

@@ -2,33 +2,7 @@ import React, { Component } from "react";
 import UserList from "../UserListPresentation/UserList";
 import UserInfoFullContainer from "../UserInfoFullContainer/UserInfoFullContainer"
 
-// would be under a componentDidMount() fetch call to an API
-const userData = [
-  {
-    id: 1,
-    first: "John",
-    last: "Roberts",
-    age: 51,
-    location: "Chicago, IL",
-    description: "John is a retired YouTuber"
-  },
-  {
-    id: 2,
-    first: "Frita",
-    last: "Waters",
-    age: 27,
-    location: "Phoenix, AZ",
-    description: "Frita loves the desert, cheese, and turtles."
-  },
-  {
-    id: 3,
-    first: "Bart",
-    last: "Simpson",
-    age: 24,
-    location: "Springfield, IL",
-    description: "Bart skateboards everywhere."
-  }
-];
+const userData = require("../userData.json");
 
 export default class UserListContainer extends Component {
   constructor(props) {
