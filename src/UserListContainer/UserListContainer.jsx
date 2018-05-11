@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import UserList from "./UserList/UserList"
+import UserList from "../UserListPresentation/UserList"
 
+// would be under a componentDidMount() fetch call to an API
 const userData = [
   {
     id: 1,
@@ -28,7 +29,7 @@ const userData = [
   }
 ];
 
-export default class App extends Component {
+export default class UserListContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,6 +68,8 @@ export default class App extends Component {
     );
   }
 }
+
+
 
 const UserInfoFull = props => {
   return (
