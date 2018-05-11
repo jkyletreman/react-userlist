@@ -79,19 +79,18 @@ const UserList = ({ userData, handleClick }) => {
   );
 };
 
-// const currentTime = new Date();
-// const year = currentTime.getFullYear();
-// const YOB = year - age;
-
 const UserInfoFull = props => {
   return (
     <div>
       {props.selectedUser.map(user => {
+        const currentTime = new Date();
+        const year = currentTime.getFullYear();
+        const YOB = year - user.age;
         return (
           <ul>
             <li>{user.first}</li>
             <li>{user.last}</li>
-            <li>{user.age}</li>
+            <li>{YOB}</li>
             <li>{user.location}</li>
             <li>{user.description}</li>
           </ul>
