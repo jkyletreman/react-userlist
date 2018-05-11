@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders user shallow correctly 1`] = `
+<div>
+  <UserList
+    handleClick={[Function]}
+    userData={
+      Array [
+        Object {
+          "age": 51,
+          "description": "John is a retired YouTuber",
+          "first": "John",
+          "id": 1,
+          "last": "Roberts",
+          "location": "Chicago, IL",
+        },
+        Object {
+          "age": 27,
+          "description": "Frita loves the desert, cheese, and turtles.",
+          "first": "Frita",
+          "id": 2,
+          "last": "Waters",
+          "location": "Phoenix, AZ",
+        },
+        Object {
+          "age": 24,
+          "description": "Bart skateboards everywhere.",
+          "first": "Bart",
+          "id": 3,
+          "last": "Simpson",
+          "location": "Springfield, IL",
+        },
+      ]
+    }
+  />
+</div>
+`;

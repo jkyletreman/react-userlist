@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders user shallow correctly 1`] = `
+<ul>
+  <li
+    onClick={undefined}
+  >
+    John
+     
+    Roberts
+  </li>
+  <li
+    onClick={undefined}
+  >
+    Frita
+     
+    Waters
+  </li>
+  <li
+    onClick={undefined}
+  >
+    Bart
+     
+    Simpson
+  </li>
+</ul>
+`;
