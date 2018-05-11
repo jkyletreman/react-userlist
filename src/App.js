@@ -50,17 +50,13 @@ export default class App extends Component {
   render() {
     const selectedUser = this.state.userSelected;
 
-    const selectedUserData = this.state.userIsSelected ? (
-      this.filterUserData(selectedUser)
-    ) : (
-      null
-    )
+    const selectedUserData = this.state.userIsSelected
+      ? this.filterUserData(selectedUser)
+      : null;
 
     const additionalUserInfo = this.state.userIsSelected ? (
       <UserInfoFull selectedUser={selectedUserData} />
-    ) : (
-      console.log(false)
-    )
+    ) : null;
 
     return (
       <div>
@@ -71,7 +67,7 @@ export default class App extends Component {
   }
 }
 
-const UserList = ({ userData, selectedUser, handleClick }) => {
+const UserList = ({ userData, handleClick }) => {
   return (
     <ul>
       {userData.map(user => (
@@ -83,21 +79,24 @@ const UserList = ({ userData, selectedUser, handleClick }) => {
   );
 };
 
-const UserInfoFull = ({ first, last, age, location, description }) => {
-  const currentTime = new Date();
-  const year = currentTime.getFullYear();
-  const YOB = year - age;
+// const currentTime = new Date();
+// const year = currentTime.getFullYear();
+// const YOB = year - age;
 
+const UserInfoFull = props => {
   return (
     <div>
-      <h2>
-        Selected User {first} {last}
-      </h2>
-      <ul>
-        <li>{YOB}</li>
-        <li>{location}</li>
-        <li>{description}</li>
-      </ul>
+      {props.selectedUser.map(user => {
+        return (
+          <ul>
+            <li>{user.first}</li>
+            <li>{user.last}</li>
+            <li>{user.age}</li>
+            <li>{user.location}</li>
+            <li>{user.description}</li>
+          </ul>
+        );
+      })}
     </div>
   );
 };
