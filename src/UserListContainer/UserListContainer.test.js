@@ -5,17 +5,14 @@ import UserList from "../UserListPresentation/UserList";
 import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import toJson from "enzyme-to-json";
-import ShallowRenderer from "react-test-renderer/shallow";
+
+configure({ adapter: new Adapter() })
 
 describe("<UserListContainer />", () => {
-  it("renders user shallow correctly", () => {
-    const renderer = new ShallowRenderer();
-    renderer.render(<UserListContainer />);
-    const tree = renderer.getRenderOutput();
-    expect(tree).toMatchSnapshot();
+  it("renders shallow correctly", () => {
+    const tree = shallow(<UserListContainer />);
+    expect(toJson(tree)).toMatchSnapshot();
   });
-
-  configure({ adapter: new Adapter() })
 
   it("should have a HOC ul with 3 li children", () => {
     const wrapper = shallow(<UserListContainer />)

@@ -3,21 +3,21 @@
 exports[`<UserList /> renders shallow correctly 1`] = `
 <ul>
   <li
-    onClick={undefined}
+    key="1"
   >
     John
      
     Roberts
   </li>
   <li
-    onClick={undefined}
+    key="2"
   >
     Frita
      
     Waters
   </li>
   <li
-    onClick={undefined}
+    key="3"
   >
     Bart
      

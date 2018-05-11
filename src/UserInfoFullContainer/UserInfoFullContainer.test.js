@@ -1,14 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { configure, shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import toJson from 'enzyme-to-json'
-import UserInfoFullContainer from './UserInfoFullContainer'
-import ShallowRenderer from 'react-test-renderer/shallow';
+import React from "react";
+import ReactDOM from "react-dom";
+import { configure, shallow } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import toJson from "enzyme-to-json";
+import UserInfoFullContainer from "./UserInfoFullContainer";
 
-it('renders user shallow correctly', () => {
-  const renderer = new ShallowRenderer();
-  renderer.render(<UserInfoFullContainer selectedUser={{age: 24}} />);
-  const tree = renderer.getRenderOutput();
-  expect(tree).toMatchSnapshot();
+configure({ adapter: new Adapter() });
+
+describe("<UserInfoFull />", () => {
+  it("renders shallow correctly", () => {
+    const tree = shallow(<UserInfoFullContainer selectedUser={{ age: 24 }} />);
+    expect(toJson(tree)).toMatchSnapshot();
+  });
 });
