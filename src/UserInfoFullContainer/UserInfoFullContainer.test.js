@@ -13,4 +13,9 @@ describe("<UserInfoFull />", () => {
   it("renders shallow correctly", () => {
     expect(toJson(tree)).toMatchSnapshot();
   });
+
+  it("calculateUserBirthYear return correctly", () => {
+    const toReturn = tree.instance().calculateUserBirthYear();
+    expect(toReturn).toBe(1994)
+  })
 });
