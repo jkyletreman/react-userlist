@@ -19,7 +19,7 @@ describe("<UserListContainer />", () => {
     expect(tree.state().userIsSelected).toBe(false);
   });
 
-  it("should update the state when a user is clicked", () => {
-    expect(tree.find(UserList).dive().find('li').simulate('click'))
-  })
+  // it("should update the state when a user is clicked", () => {
+  //   expect(tree.find(UserList).dive().find('li').simulate('click'))
+  // })
 });
