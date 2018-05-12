@@ -29,9 +29,9 @@ export default class UserListContainer extends Component {
       ? this.filterUserData(this.state.userSelected)
       : null;
 
-    const additionalUserInfo = this.state.userIsSelected ? (
-      <UserInfoFullContainer selectedUser={selectedUserData[0]} />
-    ) : null;
+    const additionalUserInfo = this.state.userIsSelected
+      ? <UserInfoFullContainer selectedUser={selectedUserData[0]} />
+      : null;
 
     return (
       <div>
