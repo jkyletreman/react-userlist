@@ -1,21 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<UserInfoFull /> renders shallow correctly 1`] = `
-<ul>
-  <li>
-    kyle
-  </li>
-  <li>
-    treman
-  </li>
-  <li>
-    1989
-  </li>
-  <li>
-    NY
-  </li>
-  <li>
-    working
-  </li>
-</ul>
+<UserInfoFull
+  birthYear={1989}
+  selectedUser={
+    Object {
+      "description": "working",
+      "first": "kyle",
+      "last": "treman",
+      "location": "NY",
+    }
+  }
+>
+  <ul>
+    <li>
+      kyle
+    </li>
+    <li>
+      treman
+    </li>
+    <li>
+      1989
+    </li>
+    <li>
+      NY
+    </li>
+    <li>
+      working
+    </li>
+  </ul>
+</UserInfoFull>
 `;
