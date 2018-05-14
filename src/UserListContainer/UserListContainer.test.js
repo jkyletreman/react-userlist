@@ -12,7 +12,7 @@ const wrapper = mount(<UserListContainer />);
 
 describe("UserListcontainer", () => {
   it("renders without crashing", () => {
-    console.log(wrapper.debug());
+    // console.log(wrapper.debug());
   });
 
   it('initializes `userIsSelected` as `false`', () => {
@@ -21,16 +21,20 @@ describe("UserListcontainer", () => {
 
   it('initializes `userSelected` as ""', () => {
     expect(wrapper.state().userSelected).toEqual('')
-  })
+  });
+
+  it('renders 3 li elements', () => {
+    expect(wrapper.find('li').length).toEqual(3);
+  });
 
   describe('on click of user', () => {
 
     beforeEach(() => {
-      wrapper.find('li').at[0].simulate('click')
+      wrapper.find('li').at(0).simulate('click')
     })
 
     it("updates `userIsSelected` to `true`", () => {
-      expect(wrapper.state().userIsSelected).toBe(true)
+      expect(wrapper.update().state().userIsSelected).toBe(true)
     })
   })
 })
