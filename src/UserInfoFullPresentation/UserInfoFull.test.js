@@ -1,28 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { configure, shallow } from "enzyme";
+import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import toJson from "enzyme-to-json";
 import UserInfoFull from "./UserInfoFull";
+import {selectedUser} from '../data/fixtures'
 
 configure({ adapter: new Adapter() });
 
-const tree = shallow(<UserInfoFull birthYear={1989} selectedUser={{
-      first: "kyle",
-      last: "treman",
-      location: "NY",
-      description: "working"
-    }}
-  />
+const userinfofull = mount(<UserInfoFull birthYear={1989} selectedUser={selectedUser} />
 );
-const instance = tree.getElement().props;
+const instance = userinfofull.getElement().props;
 
 describe("<UserInfoFull />", () => {
   it("renders shallow correctly", () => {
-    expect(toJson(tree)).toMatchSnapshot();
+    expect(toJson(userinfofull)).toMatchSnapshot();
+  });
+
+  it("has `selectedUser` as props", () => {
+    expect(userinfofull.props().selectedUser).toEqual(selectedUser)
+  });
+
+  it("has `birthYear` as props", () => {
+    expect(userinfofull.props().birthYear).toEqual(1989)
   });
 
   it("should render 5 li elements", () => {
-    expect(tree.find('ul').children('li').length).toBe(5);
+    expect(userinfofull.find('ul').children('li').length).toBe(5);
   });
 });
