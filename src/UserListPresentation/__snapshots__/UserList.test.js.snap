@@ -1,27 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<UserList /> renders shallow correctly 1`] = `
-<ul>
-  <li
-    key="1"
-  >
-    John
-     
-    Roberts
-  </li>
-  <li
-    key="2"
-  >
-    Frita
-     
-    Waters
-  </li>
-  <li
-    key="3"
-  >
-    Bart
-     
-    Simpson
-  </li>
-</ul>
+<UserList
+  userData={
+    Array [
+      Object {
+        "age": 51,
+        "description": "John is a retired YouTuber",
+        "first": "John",
+        "id": 1,
+        "last": "Roberts",
+        "location": "Chicago, IL",
+      },
+      Object {
+        "age": 27,
+        "description": "Frita loves the desert, cheese, and turtles.",
+        "first": "Frita",
+        "id": 2,
+        "last": "Waters",
+        "location": "Phoenix, AZ",
+      },
+      Object {
+        "age": 24,
+        "description": "Bart skateboards everywhere.",
+        "first": "Bart",
+        "id": 3,
+        "last": "Simpson",
+        "location": "Springfield, IL",
+      },
+    ]
+  }
+>
+  <ul>
+    <li
+      key="1"
+    >
+      John
+       
+      Roberts
+    </li>
+    <li
+      key="2"
+    >
+      Frita
+       
+      Waters
+    </li>
+    <li
+      key="3"
+    >
+      Bart
+       
+      Simpson
+    </li>
+  </ul>
+</UserList>
 `;
