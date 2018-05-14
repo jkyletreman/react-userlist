@@ -5,7 +5,7 @@ import UserList from "../UserListPresentation/UserList";
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import toJson from "enzyme-to-json";
-const userData = require("../userData.json");
+const userData = require("../data/userData.json");
 
 configure({ adapter: new Adapter() });
 const wrapper = mount(<UserListContainer />);
@@ -27,14 +27,14 @@ describe("UserListcontainer", () => {
     expect(wrapper.find('li').length).toEqual(3);
   });
 
-  describe('on click of user', () => {
-
-    beforeEach(() => {
-      wrapper.find('li').at(0).simulate('click')
-    })
-
-    it("updates `userIsSelected` to `true`", () => {
-      expect(wrapper.update().state().userIsSelected).toBe(true)
-    })
-  })
+  // describe('on click of user', () => {
+  //
+  //   beforeEach(() => {
+  //     wrapper.find('li').at(0).simulate('click')
+  //   })
+  //
+  //   it("updates `userIsSelected` to `true`", () => {
+  //     expect(wrapper.update().state().userIsSelected).toBe(true)
+  //   })
+  // })
 })

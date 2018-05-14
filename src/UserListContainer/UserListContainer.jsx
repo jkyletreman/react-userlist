@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import UserList from "../UserListPresentation/UserList";
 import UserInfoFullContainer from "../UserInfoFullContainer/UserInfoFullContainer"
 
-const userData = require("../userData.json");
+const userData = require("../data/userData.json");
 
 export default class UserListContainer extends Component {
   constructor(props) {
