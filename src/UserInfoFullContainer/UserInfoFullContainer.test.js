@@ -11,7 +11,7 @@ const userinfofull = mount(<UserInfoFullContainer selectedUser={{ age: 24 }} />)
 
 describe("<UserInfoFull />", () => {
   it("renders shallow correctly", () => {
-    console.log(userinfofull.debug())
+    // console.log(userinfofull.debug())
     expect(toJson(userinfofull)).toMatchSnapshot();
   });
 

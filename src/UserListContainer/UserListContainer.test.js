@@ -8,9 +8,10 @@ import toJson from "enzyme-to-json";
 const userData = require("../data/userData.json");
 
 configure({ adapter: new Adapter() });
-const wrapper = mount(<UserListContainer />);
 
 describe("UserListcontainer", () => {
+  let wrapper = mount(<UserListContainer />);
+
   it("renders without crashing", () => {
     // console.log(wrapper.debug());
   });
@@ -34,6 +35,7 @@ describe("UserListcontainer", () => {
   //   })
   //
   //   it("updates `userIsSelected` to `true`", () => {
+  //     console.log(wrapper.debug());
   //     expect(wrapper.update().state().userIsSelected).toBe(true)
   //   })
   // })
