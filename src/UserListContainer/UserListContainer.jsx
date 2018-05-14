@@ -10,8 +10,8 @@ export default class UserListContainer extends Component {
     this.state = {
       userSelected: "",
       userIsSelected: false
-    };
   }
+}
 
   handleClick = e => {
     this.setState({
