@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserInfoFull = ({ additionalInfo }) => {
+const UserInfoFull = (additionalInfo) => {
   return (
     <ul>
       {additionalInfo.map(data => {
