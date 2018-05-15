@@ -1,13 +1,12 @@
 import React from "react";
 
-const UserInfoFull = (additionalInfo) => {
+const UserInfoFull = ({ additionalInfo }) => {
+  console.log(additionalInfo);
   return (
     <ul>
-      {additionalInfo.map(data => {
-        <li>{data.first}</li>
-      })}
+      <li>k</li>
     </ul>
-  )
-}
+  );
+};
 
 export default UserInfoFull;
