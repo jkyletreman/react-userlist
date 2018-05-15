@@ -5,18 +5,6 @@ import UserData from "../context";
 const userData = require("../data/userData.json");
 
 export default class UserListContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userSelected: "",
-      userIsSelected: false
-    };
-  }
-
-  // filterUserData = username => {
-  //   return userData.filter(user => `${user.first} ${user.last}` === username);
-  // };
-
   render() {
     // const selectedUserData = this.state.userIsSelected
     //   ? this.filterUserData(this.state.userSelected)
@@ -28,18 +16,25 @@ export default class UserListContainer extends Component {
 
     return (
       <UserData.Consumer>
-        {context => (
-          <React.Fragment>
+        {context =>
+          context.state.userIsSelected ? (
+            <React.Fragment>
+              <UserList
+                userData={context.state.userData}
+                selectUser={context.selectUser}
+              />
+              <UserInfoFull
+                userData={context.state.userData}
+                selectUser={context.state.userSelected}
+              />
+            </React.Fragment>
+          ) : (
             <UserList
               userData={context.state.userData}
               selectUser={context.selectUser}
             />
-            <UserInfoFull
-              userData={context.state.userData}
-              selectUser={context.state.userSelected}
-            />
-          </React.Fragment>
-        )}
+          )
+        }
       </UserData.Consumer>
     );
   }
