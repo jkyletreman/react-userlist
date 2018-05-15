@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserData from "../context";
+import UserData from "../data/context";
 const userData = require("../data/userData.json");
 
 export default class UserDataProvider extends Component {
