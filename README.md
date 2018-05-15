@@ -1,5 +1,6 @@
-MVP - A list of users, displayed in React. Click a user to display additional data
+Master branch -MVP - A list of users, displayed in React. Click a user to display additional data. Full accompanying test suite with enzyme, jest
 
-Notes:
-* Everything is rendered from src/index -> UserListContainer
-* UserListContainer takes several HOC, UserList, UserInfoFullContainer, UserInfoFull
+React-Context-API:
+
+*Refractored to use new Context API on branch Context
+*current App state: Fully Working, lacking test suite

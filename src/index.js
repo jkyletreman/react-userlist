@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import UserDataProvider from "./UserDataProvider/UserDataProvider";
+import App from "./App/App";
 import './index.css';
-import UserListContainer from "./UserListContainer/UserListContainer"
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<UserListContainer />, document.getElementById('root'));
+ReactDOM.render(
+  <UserDataProvider>
+    <App />
+  </UserDataProvider>
+  , document.getElementById('root'));
 registerServiceWorker();
