@@ -28,12 +28,20 @@ export default class UserListContainer extends Component {
 
     return (
       <UserData.Consumer>
-        <React.Fragment>
-          <UserList />
-          {context =>
-            context.userIsSelected ? <UserInfoFull /> : <div>Nope</div>
-          }
-        </React.Fragment>
+        {context => (
+          <React.Fragment>
+            <UserList
+              userData={context.state.userData}
+              selectUser={context.selectUser}
+            />
+            {context.userIsSelected ? (
+              <UserInfoFull
+                selectedUser={context.additionalInfo}
+                birthYear={context.birthYear}
+              />
+            ) : null}
+          </React.Fragment>
+        )}
       </UserData.Consumer>
     );
   }

@@ -41,23 +41,34 @@ export default class UserDataProvider extends Component {
 
   selectUser = e => {
     this.setState({
-      userSelected: e.target.innerText,
       userIsSelected: true
     });
+    this.setState({
+      userSelected: e.target.innerText
+    });
+    this.setUserData();
+  };
+
+  setUserData = async () => {
+    const additionalInfo = await this.filterUserData(this.state.userSelected);
+    this.setState({ additionalInfo: additionalInfo });
+    const birthYear = await this.calculateUserBirthYear(
+      this.state.additionalInfo.age
+    );
+    this.setState({ birthYear: birthYear });
   };
 
   filterUserData = username => {
     const selectedUser = this.state.userData.filter(
       user => `${user.first} ${user.last}` === this.state.userSelected
     );
-    const birthYear = this.calculateUserBirthYear(selectedUser.age)
-    this.setState({ additionalInfo: selectedUser, birthYear: birthYear });
+    return selectedUser;
   };
 
   calculateUserBirthYear = () => {
     const currentTime = new Date();
     const year = currentTime.getFullYear();
-    return year - this.state.selectedUser.age;
+    return year - this.state.additionalInfo.age;
   };
 
   render() {
@@ -66,9 +77,10 @@ export default class UserDataProvider extends Component {
         value={{
           state: this.state,
           selectUser: this.selectUser,
-          userSelected: this.userSelected,
-          additionalInfo: this.additionalInfo
-        }}>
+          additionalInfo: this.filterUserData,
+          birthYear: this.calculateUserBirthYear
+        }}
+      >
         {this.props.children}
       </UserData.Provider>
     );
