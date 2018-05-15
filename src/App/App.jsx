@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import UserList from "../UserListPresentation/UserList";
 import UserInfoFull from "../UserInfoFullPresentation/UserInfoFull";
 import UserData from "../context";
-const userData = require("../data/userData.json");
 
 export default class App extends Component {
   // shouldComponentUpdate() {
