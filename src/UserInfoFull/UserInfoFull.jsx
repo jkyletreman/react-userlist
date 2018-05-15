@@ -1,11 +1,23 @@
 import React from "react";
+import UserData from "../data/context";
 
-const UserInfoFull = ({ additionalInfo, selectedUser }) => {
-  console.log(selectedUser);
+const UserInfoFull = () => {
   return (
-    <ul>
-      <li>k</li>
-    </ul>
+    <UserData.Consumer>
+      {context => {
+        context.state.userIsSelected
+          ? context.state.userData
+              .filter(user => `${user.first} ${user.last}` === context.state.selectedUser)
+              .map(user => {
+                return (
+                  <ul>
+                    <li>{user.first}</li>
+                  </ul>
+                );
+              })
+          : null;
+      }}
+    </UserData.Consumer>
   );
 };
 

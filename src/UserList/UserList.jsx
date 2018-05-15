@@ -1,16 +1,19 @@
 import React from "react";
+import UserData from "../data/context";
 
-const UserList = ({ userData, selectUser}) => {
+const UserList = () => {
   return (
-    <ul>
-      {userData.map(user => {
-        return (
-          <li key={user.id} onClick={selectUser}>
-            {user.first} {user.last}
-          </li>
-        );
-      })}
-    </ul>
+    <UserData.Consumer>
+      {context => {
+        return context.state.userData.map(user => {
+          return (
+            <li key={user.id} onClick={context.selectUser}>
+              {user.first} {user.last}
+            </li>
+          );
+        });
+      }}
+    </UserData.Consumer>
   );
 };
 

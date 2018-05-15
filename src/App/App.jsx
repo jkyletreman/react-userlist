@@ -1,31 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import UserList from "../UserList/UserList";
 import UserInfoFull from "../UserInfoFull/UserInfoFull";
-import UserData from "../data/context";
+// import UserData from "../data/context";
 
 const App = () => {
   return (
-    <UserData.Consumer>
-      {context =>
-        context.state.userIsSelected ? (
-          <React.Fragment>
-            <UserList
-              userData={context.state.userData}
-              selectUser={context.selectUser}
-            />
-            <UserInfoFull
-              additionalInfo={context.state.additionalInfo}
-              username={context.state.selectedUser}
-            />
-          </React.Fragment>
-        ) : (
-          <UserList
-            userData={context.state.userData}
-            selectUser={context.selectUser}
-          />
-        )
-      }
-    </UserData.Consumer>
+    <React.Fragment>
+      <UserList />
+      <UserInfoFull />
+    </React.Fragment>
   );
 };
 
