@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import UserData from "../context";
 // const userData = require("../data/userData.json");
 
-
 export default class UserDataProvider extends Component {
   constructor() {
     super();
     this.state = {
+      userSelected: "",
+      birthYear: null,
+      userIsSelected: false,
+      additionalInfo: null,
       userData: [
         {
           id: 1,
@@ -36,9 +39,36 @@ export default class UserDataProvider extends Component {
     };
   }
 
+  selectUser = e => {
+    this.setState({
+      userSelected: e.target.innerText,
+      userIsSelected: true
+    });
+  };
+
+  filterUserData = username => {
+    const selectedUser = this.state.userData.filter(
+      user => `${user.first} ${user.last}` === this.state.userSelected
+    );
+    const birthYear = this.calculateUserBirthYear(selectedUser.age)
+    this.setState({ additionalInfo: selectedUser, birthYear: birthYear });
+  };
+
+  calculateUserBirthYear = () => {
+    const currentTime = new Date();
+    const year = currentTime.getFullYear();
+    return year - this.state.selectedUser.age;
+  };
+
   render() {
     return (
-      <UserData.Provider value={this.state.userData}>
+      <UserData.Provider
+        value={{
+          state: this.state,
+          selectUser: this.selectUser,
+          userSelected: this.userSelected,
+          additionalInfo: this.additionalInfo
+        }}>
         {this.props.children}
       </UserData.Provider>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserList from "../UserListPresentation/UserList";
-import UserInfoFullContainer from "../UserInfoFullContainer/UserInfoFullContainer";
+import UserInfoFull from "../UserInfoFullPresentation/UserInfoFull";
+import UserData from "../context";
 const userData = require("../data/userData.json");
 
 export default class UserListContainer extends Component {
@@ -11,31 +12,29 @@ export default class UserListContainer extends Component {
       userIsSelected: false
     };
   }
-  handleClick = e => {
-    this.setState({
-      userSelected: e.target.innerText,
-      userIsSelected: true
-    });
-  };
 
-  filterUserData = username => {
-    return userData.filter(user => `${user.first} ${user.last}` === username);
-  };
+  // filterUserData = username => {
+  //   return userData.filter(user => `${user.first} ${user.last}` === username);
+  // };
 
   render() {
-    const selectedUserData = this.state.userIsSelected
-      ? this.filterUserData(this.state.userSelected)
-      : null;
-
-    const additionalUserInfo = this.state.userIsSelected ? (
-      <UserInfoFullContainer selectedUser={selectedUserData[0]} />
-    ) : null;
+    // const selectedUserData = this.state.userIsSelected
+    //   ? this.filterUserData(this.state.userSelected)
+    //   : null;
+    //
+    // const additionalUserInfo = this.state.userIsSelected ? (
+    //   <UserInfoFullContainer selectedUser={selectedUserData[0]} />
+    // ) : null;
 
     return (
-      <div>
-        <UserList handleClick={this.handleClick} />
-        {additionalUserInfo}
-      </div>
+      <UserData.Consumer>
+        <React.Fragment>
+          <UserList />
+          {context =>
+            context.userIsSelected ? <UserInfoFull /> : <div>Nope</div>
+          }
+        </React.Fragment>
+      </UserData.Consumer>
     );
   }
 }
