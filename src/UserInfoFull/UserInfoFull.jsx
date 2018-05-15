@@ -20,9 +20,9 @@ const UserInfo = ({ userData, calculateBirthYear, selectedUser }) => {
     selectedUser !== ""
       ? userData
           .filter(user => `${user.first} ${user.last}` === selectedUser)
-          .map(user => {
+          .map((user, i) => {
             return (
-              <ul>
+              <ul key={i}>
                 <li>{user.first}</li>
                 <li>{user.last}</li>
                 <li>{user.location}</li>
