@@ -1,5 +1,4 @@
 import React from "react";
-import UserData from "../context";
 
 const UserInfoFull = ({ userData, selectedUser }) => {
   const additionalInfo = userData
@@ -13,7 +12,6 @@ const UserInfoFull = ({ userData, selectedUser }) => {
     });
   return (
     <React.Fragment>
-      <div>Ok now what</div>
       {additionalInfo}
     </React.Fragment>
   );

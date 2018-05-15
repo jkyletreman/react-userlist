@@ -1,5 +1,4 @@
 import React from "react";
-import UserData from "../context";
 
 const UserList = ({ userData, selectUser}) => {
   return (
