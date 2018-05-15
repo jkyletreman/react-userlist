@@ -9,32 +9,27 @@ export default class UserDataProvider extends Component {
       selectedUser: "",
       userIsSelected: false,
       userData: userData,
-      additionalInfo: null,
-      birthYear: null
     };
   }
 
   selectUser = e => {
     const userIsSelected = true
     const selectedUser = e.target.innerText
-    const additionalInfo =  this.filterUserData(selectedUser);
-    const birthYear = this.calculateUserBirthYear(additionalInfo.age);
+
     this.setState({
       userIsSelected,
-      selectedUser,
-      additionalInfo,
-      birthYear
+      selectedUser
     })
   };
 
-  filterUserData = username => {
-    const selectedUser = this.state.userData.filter(
-      user => `${user.first} ${user.last}` === this.state.selectedUser
-    );
-    return selectedUser
-  };
+  // filterUserData = username => {
+  //   const selectedUser = this.state.userData.filter(
+  //     user => `${user.first} ${user.last}` === this.state.selectedUser
+  //   );
+  //   return selectedUser
+  // };
 
-  calculateUserBirthYear = age => {
+  calculateBirthYear = age => {
     const currentTime = new Date();
     const year = currentTime.getFullYear();
     return year - age
@@ -45,7 +40,8 @@ export default class UserDataProvider extends Component {
       <UserData.Provider
         value={{
           state: this.state,
-          selectUser: this.selectUser
+          selectUser: this.selectUser,
+          calculateBirthYear: this.calculateBirthYear
         }}
       >
         {this.props.children}

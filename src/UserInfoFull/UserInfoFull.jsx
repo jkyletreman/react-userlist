@@ -4,21 +4,38 @@ import UserData from "../data/context";
 const UserInfoFull = () => {
   return (
     <UserData.Consumer>
-      {context => {
-        context.state.userIsSelected
-          ? context.state.userData
-              .filter(user => `${user.first} ${user.last}` === context.state.selectedUser)
-              .map(user => {
-                return (
-                  <ul>
-                    <li>{user.first}</li>
-                  </ul>
-                );
-              })
-          : null;
-      }}
+      {context => (
+        <UserInfo
+          userData={context.state.userData}
+          selectedUser={context.state.selectedUser}
+          calculateBirthYear={context.calculateBirthYear}
+        />
+      )}
     </UserData.Consumer>
   );
 };
+
+const UserInfo = ({ userData, calculateBirthYear, selectedUser }) => {
+  const user =
+    selectedUser !== ""
+      ? userData
+          .filter(user => `${user.first} ${user.last}` === selectedUser)
+          .map(user => {
+            return (
+              <ul>
+                <li>{user.first}</li>
+                <li>{user.last}</li>
+                <li>{user.location}</li>
+                <li>{user.description}</li>
+                <li>{calculateBirthYear(user.age)}</li>
+              </ul>
+            );
+          })
+      : null;
+  return (
+    <div>
+      {user}
+    </div>
+)};
 
 export default UserInfoFull;
