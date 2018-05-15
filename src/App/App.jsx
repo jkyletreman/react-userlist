@@ -20,16 +20,16 @@ export default class App extends Component {
       <UserData.Consumer>
         {context =>
           context.state.userIsSelected ? (
-            <React.Fragment>
-              <UserList
-                userData={context.state.userData}
-                selectUser={context.selectUser}
-              />
-              <UserInfoFull
-                userData={context.state.userData}
-                selectUser={context.state.selectedUser}
-              />
-            </React.Fragment>
+              <React.Fragment>
+                <UserList
+                  userData={context.state.userData}
+                  selectUser={context.selectUser}
+                />
+                <UserInfoFull
+                  userData={context.state.userData}
+                  selectUser={context.state.selectedUser}
+                />
+              </React.Fragment>
           ) : (
             <UserList
               userData={context.state.userData}
