@@ -9,7 +9,7 @@ export default class UserDataProvider extends Component {
       selectedUser: "",
       userIsSelected: false,
       userData: userData,
-      additionalInfo: [],
+      additionalInfo: null,
       birthYear: null
     };
   }
@@ -37,7 +37,7 @@ export default class UserDataProvider extends Component {
   calculateUserBirthYear = age => {
     const currentTime = new Date();
     const year = currentTime.getFullYear();
-    console.log(this.state.additionalInfo)
+    console.log(age)
     return year - age
   };
 
