@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import UserData from "../context";
-// const userData = require("../data/userData.json");
+const userData = require("../data/userData.json");
 
 export default class UserDataProvider extends Component {
   constructor() {
@@ -8,40 +8,15 @@ export default class UserDataProvider extends Component {
     this.state = {
       selectedUser: "",
       userIsSelected: false,
-      userData: [
-        {
-          id: 1,
-          first: "John",
-          last: "Roberts",
-          age: 51,
-          location: "Chicago, IL",
-          description: "John is a retired YouTuber"
-        },
-        {
-          id: 2,
-          first: "Frita",
-          last: "Waters",
-          age: 27,
-          location: "Phoenix, AZ",
-          description: "Frita loves the desert, cheese, and turtles."
-        },
-        {
-          id: 3,
-          first: "Bart",
-          last: "Simpson",
-          age: 24,
-          location: "Springfield, IL",
-          description: "Bart skateboards everywhere."
-        }
-      ]
+      userData: userData,
+      additionalInfo: [],
+      birthYear: null;
     };
   }
 
   selectUser = e => {
     this.setState({
-      userIsSelected: true
-    });
-    this.setState({
+      userIsSelected: true,
       selectedUser: e.target.innerText
     });
   };
@@ -65,7 +40,6 @@ export default class UserDataProvider extends Component {
         value={{
           state: this.state,
           selectUser: this.selectUser,
-          birthYear: this.calculateUserBirthYear
         }}
       >
         {this.props.children}
