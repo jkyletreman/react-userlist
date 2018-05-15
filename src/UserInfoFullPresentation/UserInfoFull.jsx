@@ -13,7 +13,7 @@ const UserInfoFull = ({ userData, selectedUser }) => {
     });
   return (
     <React.Fragment>
-      <div>rendering</div>
+      <div>Ok now what</div>
       {additionalInfo}
     </React.Fragment>
   );
