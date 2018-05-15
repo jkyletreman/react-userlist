@@ -1,8 +1,5 @@
-import React from 'react';
-import userData from './data/userData.json';
+import { createContext } from "react";
 
-const state = { userData };
+const UserData = createContext();
 
-const UserData = React.createContext(state.userData);
-
-export default UserData;
+export default UserData
