@@ -7,9 +7,7 @@ export default class UserDataProvider extends Component {
     super();
     this.state = {
       userSelected: "",
-      birthYear: null,
       userIsSelected: false,
-      additionalInfo: null,
       userData: [
         {
           id: 1,
@@ -46,16 +44,6 @@ export default class UserDataProvider extends Component {
     this.setState({
       userSelected: e.target.innerText
     });
-    this.setUserData();
-  };
-
-  setUserData = async () => {
-    const additionalInfo = await this.filterUserData(this.state.userSelected);
-    this.setState({ additionalInfo: additionalInfo });
-    const birthYear = await this.calculateUserBirthYear(
-      this.state.additionalInfo.age
-    );
-    this.setState({ birthYear: birthYear });
   };
 
   filterUserData = username => {
@@ -77,7 +65,6 @@ export default class UserDataProvider extends Component {
         value={{
           state: this.state,
           selectUser: this.selectUser,
-          additionalInfo: this.filterUserData,
           birthYear: this.calculateUserBirthYear
         }}
       >

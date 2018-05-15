@@ -34,12 +34,10 @@ export default class UserListContainer extends Component {
               userData={context.state.userData}
               selectUser={context.selectUser}
             />
-            {context.userIsSelected ? (
-              <UserInfoFull
-                selectedUser={context.additionalInfo}
-                birthYear={context.birthYear}
-              />
-            ) : null}
+            <UserInfoFull
+              userData={context.state.userData}
+              selectUser={context.state.userSelected}
+            />
           </React.Fragment>
         )}
       </UserData.Consumer>
