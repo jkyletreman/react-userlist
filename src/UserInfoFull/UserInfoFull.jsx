@@ -31,7 +31,7 @@ const UserInfo = ({ userData, calculateBirthYear, selectedUser }) => {
               </ul>
             );
           })
-      : null;
+      : <p>Click a user to see more!</p>;
   return (
     <div>
       {user}
