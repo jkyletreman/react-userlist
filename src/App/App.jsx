@@ -4,10 +4,13 @@ import UserInfoFull from "../UserInfoFullPresentation/UserInfoFull";
 import UserData from "../context";
 const userData = require("../data/userData.json");
 
-export default class UserListContainer extends Component {
+export default class App extends Component {
+  // shouldComponentUpdate() {
+  //   return true;
+  // }
   render() {
     // const selectedUserData = this.state.userIsSelected
-    //   ? this.filterUserData(this.state.userSelected)
+    //   ? this.filterUserData(this.state.selectedUser)
     //   : null;
     //
     // const additionalUserInfo = this.state.userIsSelected ? (
@@ -25,7 +28,7 @@ export default class UserListContainer extends Component {
               />
               <UserInfoFull
                 userData={context.state.userData}
-                selectUser={context.state.userSelected}
+                selectUser={context.state.selectedUser}
               />
             </React.Fragment>
           ) : (

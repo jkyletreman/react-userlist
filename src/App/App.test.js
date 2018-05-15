@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import UserListContainer from "./UserListContainer";
+import App from "./App";
 import UserList from "../UserListPresentation/UserList";
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
@@ -10,7 +10,7 @@ const userData = require("../data/userData.json");
 configure({ adapter: new Adapter() });
 
 describe("UserListcontainer", () => {
-  let wrapper = mount(<UserListContainer />);
+  let wrapper = mount(<App />);
 
   it("renders without crashing", () => {
     // console.log(wrapper.debug());

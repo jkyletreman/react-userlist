@@ -6,7 +6,7 @@ export default class UserDataProvider extends Component {
   constructor() {
     super();
     this.state = {
-      userSelected: "",
+      selectedUser: "",
       userIsSelected: false,
       userData: [
         {
@@ -42,13 +42,13 @@ export default class UserDataProvider extends Component {
       userIsSelected: true
     });
     this.setState({
-      userSelected: e.target.innerText
+      selectedUser: e.target.innerText
     });
   };
 
   filterUserData = username => {
     const selectedUser = this.state.userData.filter(
-      user => `${user.first} ${user.last}` === this.state.userSelected
+      user => `${user.first} ${user.last}` === this.state.selectedUser
     );
     return selectedUser;
   };
