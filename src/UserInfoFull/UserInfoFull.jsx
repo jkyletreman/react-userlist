@@ -1,7 +1,7 @@
 import React from "react";
 
-const UserInfoFull = ({ additionalInfo }) => {
-  console.log(additionalInfo);
+const UserInfoFull = ({ additionalInfo, selectedUser }) => {
+  console.log(selectedUser);
   return (
     <ul>
       <li>k</li>

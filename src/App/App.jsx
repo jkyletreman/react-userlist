@@ -13,7 +13,10 @@ const App = () => {
               userData={context.state.userData}
               selectUser={context.selectUser}
             />
-            <UserInfoFull additionalInfo={context.state.additionalInfo} />
+            <UserInfoFull
+              additionalInfo={context.state.additionalInfo}
+              username={context.state.selectedUser}
+            />
           </React.Fragment>
         ) : (
           <UserList
@@ -26,4 +29,4 @@ const App = () => {
   );
 };
 
-export default App
+export default App;

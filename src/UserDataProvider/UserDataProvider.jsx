@@ -37,7 +37,6 @@ export default class UserDataProvider extends Component {
   calculateUserBirthYear = age => {
     const currentTime = new Date();
     const year = currentTime.getFullYear();
-    console.log(age)
     return year - age
   };
 
