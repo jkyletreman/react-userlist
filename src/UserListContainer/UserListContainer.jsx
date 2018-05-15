@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import UserList from "../UserListPresentation/UserList";
-import UserInfoFullContainer from "../UserInfoFullContainer/UserInfoFullContainer"
-
+import UserInfoFullContainer from "../UserInfoFullContainer/UserInfoFullContainer";
 const userData = require("../data/userData.json");
 
 export default class UserListContainer extends Component {
@@ -10,9 +9,8 @@ export default class UserListContainer extends Component {
     this.state = {
       userSelected: "",
       userIsSelected: false
+    };
   }
-}
-
   handleClick = e => {
     this.setState({
       userSelected: e.target.innerText,
@@ -29,13 +27,13 @@ export default class UserListContainer extends Component {
       ? this.filterUserData(this.state.userSelected)
       : null;
 
-    const additionalUserInfo = this.state.userIsSelected
-      ? <UserInfoFullContainer selectedUser={selectedUserData[0]} />
-      : null;
+    const additionalUserInfo = this.state.userIsSelected ? (
+      <UserInfoFullContainer selectedUser={selectedUserData[0]} />
+    ) : null;
 
     return (
       <div>
-        <UserList userData={userData} handleClick={this.handleClick} />
+        <UserList handleClick={this.handleClick} />
         {additionalUserInfo}
       </div>
     );

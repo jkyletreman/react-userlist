@@ -1,15 +1,23 @@
-import React from "react"
+import React from "react";
+import UserData from "../context";
 
-const UserInfoFull = ({ selectedUser, birthYear }) => {
+const UserInfoFull = birthYear => {
   return (
-    <ul>
-      <li>{selectedUser.first}</li>
-      <li>{selectedUser.last}</li>
-      <li>{birthYear}</li>
-      <li>{selectedUser.location}</li>
-      <li>{selectedUser.description}</li>
-    </ul>
+    <UserData.Consumer>
+      {user => (
+        console.log(user)
+
+      )}
+    </UserData.Consumer>
   );
 };
 
-export default UserInfoFull
+export default UserInfoFull;
+
+{/* <ul>
+  <li>{user.first}</li>
+  <li>{user.last}</li>
+  <li>{birthYear}</li>
+  <li>{user.location}</li>
+  <li>{user.description}</li>
+</ul> */}
