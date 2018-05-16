@@ -22,16 +22,16 @@ const UserInfo = ({ userData, calculateBirthYear, selectedUser }) => {
           .filter(user => `${user.first} ${user.last}` === selectedUser)
           .map((user, i) => {
             return (
-              <ul key={i}>
-                <li>{user.first}</li>
-                <li>{user.last}</li>
-                <li>{user.location}</li>
-                <li>{user.description}</li>
-                <li>{calculateBirthYear(user.age)}</li>
+              <ul key={i} className="additional-info-list">
+                <li className="additional-info-item">{user.first}</li>
+                <li className="additional-info-item">{user.last}</li>
+                <li className="additional-info-item">{user.location}</li>
+                <li className="additional-info-item">{user.description}</li>
+                <li className="additional-info-item">{calculateBirthYear(user.age)}</li>
               </ul>
             );
           })
-      : <p>Click a user to see more!</p>;
+      : <p className="user-tutorial">Click a user to see more!</p>;
   return (
     <div>
       {user}
