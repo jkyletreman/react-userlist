@@ -1,7 +1,7 @@
 import React from "react";
 import UserData from "../data/context";
 
-const UserList = () => {
+export const UserList = () => {
   return (
     <UserData.Consumer>
       {context => {
