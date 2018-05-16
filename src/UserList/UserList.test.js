@@ -3,8 +3,9 @@ import Enzyme, { configure, mount, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import toJson from "enzyme-to-json";
 import UserDataProvider from "../UserDataProvider/UserDataProvider";
-import UserData from "../data/context";
+import { UserData } from "../data/context";
 import UserList from "./UserList";
+import { calculateBirthYear, selectUser } from "../UserDataProvider/UserDataProvider"
 const userData = require("../data/userData.json");
 
 configure({ adapter: new Adapter() });
@@ -14,11 +15,14 @@ beforeEach(() => {
 });
 
 const getProviderWithContext = (
-  context = { state: {
-    selectedUser: "",
-    userIsSelected: false,
-    userData: userData
-  }
+  context = {
+    state: {
+      selectedUser: "",
+      userIsSelected: false,
+      userData: userData
+    },
+    calculateBirthYear,
+    selectUser
 }) => {
   // Will then mock the UserData module being used in our LanguageSelector component
   jest.doMock("../data/context", () => {
@@ -36,7 +40,7 @@ const getProviderWithContext = (
 
 describe("UserList", () => {
   const UserList = getProviderWithContext();
-
+  console.log(UserList)
   const provider = mount(<UserList />);
 
   it("should render without crashing", () => {
