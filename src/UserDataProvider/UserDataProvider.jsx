@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import UserData from "../data/context";
 const userData = require("../data/userData.json");
 
-export default class UserDataProvider extends Component {
+export class UserDataProvider extends Component {
   constructor() {
     super();
     this.state = {
@@ -49,3 +49,5 @@ export default class UserDataProvider extends Component {
     );
   }
 }
+
+export default UserDataProvider

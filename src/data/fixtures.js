@@ -1,3 +1,4 @@
+import { calculateBirthYear, selectUser } from "../UserDataProvider/UserDataProvider"
 const userData = require("../data/userData.json");
 
 export const selectedUser = [
