@@ -1,4 +1,4 @@
-Master branch -MVP - A list of users, displayed in React. Click a user to display additional data. Full accompanying test suite with enzyme, jest
+Master branch -MVP - A list of users, displayed in React. Click a user to display additional data. 
 
 React-Context-API:
 
