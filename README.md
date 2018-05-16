@@ -2,8 +2,11 @@ Master branch -MVP - A list of users, displayed in React. Click a user to displa
 
 React-Context-API:
 
-*Refractored to use new Context API on branch Context
-*current App state: Fully Working, lacking test suite
+* Refractored to use new Context API on branch Context
+* current App state: Fully Working, lacking test suite
 
-**Full testing of the Context API is not fully supported by enzyme
+** Full testing of the Context API is not fully supported by enzyme
 https://github.com/airbnb/enzyme/pull/1513
+
+** For a better test suit checkout the preContextApi branch
+  - This branch renders everything from index -> UserListContainer ->
