@@ -1,7 +1,13 @@
 * {
-  margin: .2rem;
   padding: .2rem;
   font-family: sans-serif;
   text-align: center;
   list-style: none;
+  font-size: 18px;
+}
+
+.username {
+  border: 1px solid lightgrey;
+  width: 50%;
+  margin: 0 auto;
 }
