@@ -18,9 +18,7 @@ const getProviderWithContext = (
     selectedUser: "",
     userIsSelected: false,
     userData: userData
-  },
-  selectUser,
-  calculateBirthYear
+  }
 }) => {
   // Will then mock the UserData module being used in our LanguageSelector component
   jest.doMock("../data/context", () => {
@@ -37,20 +35,14 @@ const getProviderWithContext = (
 };
 
 describe("UserList", () => {
-  const UserList = getProviderWithContext({
-    state: {
-      selectedUser: "",
-      userIsSelected: false,
-      userData: userData
-    }
-  });
+  const UserList = getProviderWithContext();
 
   const provider = mount(<UserList />);
 
   it("should render without crashing", () => {
     console.log(provider.debug());
   });
-  it("should render 3 `li`s", () => {
-    expect(provider.find("li").length).toEqual(3);
-  });
+  // it("should render 3 `li`s", () => {
+  //   expect(provider.find("li").length).toEqual(3);
+  // });
 });
