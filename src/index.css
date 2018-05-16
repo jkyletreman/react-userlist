@@ -1,7 +1,27 @@
 * {
-  margin: .2rem;
   padding: .2rem;
   font-family: sans-serif;
-  text-align: center;
   list-style: none;
+  font-size: 18px;
+  text-align: center;
+}
+
+.username {
+  border: 1px solid lightgrey;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.info-list {
+  width: 400px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.info-item {
+  text-decoration: underline;
+}
+
+.user-tutorial {
+  color: red;
 }

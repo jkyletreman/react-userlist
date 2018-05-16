@@ -7,7 +7,7 @@ export const UserList = () => {
       {context => {
         return context.state.userData.map(user => {
           return (
-            <li key={user.id} onClick={context.selectUser}>
+            <li className="username" key={user.id} onClick={context.selectUser}>
               {user.first} {user.last}
             </li>
           );
