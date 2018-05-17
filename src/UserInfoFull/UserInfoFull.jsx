@@ -34,7 +34,7 @@ const UserInfo = ({ userData, calculateBirthYear, selectedUser }) => {
           );
         })
     ) : (
-      <p className="user-tutorial">Click a user to see more!</p>
+      <p className="user-tutorial">Click a user to see more, once a user has been selected you can delete!</p>
     );
   return <div>{user}</div>;
 };

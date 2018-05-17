@@ -22,12 +22,18 @@ export class UserDataProvider extends Component {
     })
   };
 
-  // filterUserData = username => {
-  //   const selectedUser = this.state.userData.filter(
-  //     user => `${user.first} ${user.last}` === this.state.selectedUser
-  //   );
-  //   return selectedUser
-  // };
+  deleteUser = (selectedUser) => {
+    const remainingUsers = this.filterUserData(selectedUser);
+    console.log(remainingUsers)
+    this.setState({userData: remainingUsers})
+  }
+
+  filterUserData = username => {
+    const selectedUser = this.state.userData.filter(
+      user => `${user.first} ${user.last}` !== this.state.selectedUser
+    );
+    return selectedUser
+  };
 
   calculateBirthYear = age => {
     const currentTime = new Date();
@@ -41,7 +47,8 @@ export class UserDataProvider extends Component {
         value={{
           state: this.state,
           selectUser: this.selectUser,
-          calculateBirthYear: this.calculateBirthYear
+          calculateBirthYear: this.calculateBirthYear,
+          deleteUser: this.deleteUser
         }}
       >
         {this.props.children}

@@ -7,9 +7,16 @@ export const UserList = () => {
       {context => {
         return context.state.userData.map(user => {
           return (
-            <li className="username" key={user.id} onClick={context.selectUser}>
-              {user.first} {user.last}
-            </li>
+            <div key={user.id}>
+              <li
+                className="username"
+                style={{display: 'inline-block'}}
+                onClick={context.selectUser}
+              >
+                {user.first} {user.last}
+              </li>
+              <button style={{display: 'inline-block'}} onClick={context.deleteUser}>Delete User</button>
+            </div>
           );
         });
       }}
