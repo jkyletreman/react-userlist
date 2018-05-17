@@ -24,7 +24,6 @@ export class UserDataProvider extends Component {
 
   deleteUser = (selectedUser) => {
     const remainingUsers = this.filterUserData(selectedUser);
-    console.log(remainingUsers)
     this.setState({userData: remainingUsers})
   }
 
